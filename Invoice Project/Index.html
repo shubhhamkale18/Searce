@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Invoice Genertor
+        </title>
+        <style>
+            .taxtext{
+                border: 1px solid black;
+                padding-right: 2px;
+                margin-right: 2px;
+
+            }
+
+.subtotal{
+    display: flex;
+}
+            .tax{
+                display: flex;
+            }
+            .line1{
+                width: 130%;
+                transform: translateX(-18%);
+                
+            }
+            .line2{
+                width: 160%;
+                transform: translateX(-24%);
+            }
+            .line3{
+                width: 105%;
+                transform: translateX(-6.5%);
+            }
+            .Heading, .Section1{
+                display: flex;
+            }
+            
+            .Section1{
+                position: relative;
+                bottom: -40px;
+            }
+            .message{
+                border: 1px solid black;
+                width: 130%;
+                
+            }
+
+            .due{
+                background-color: red;
+                color:  white;
+                width: 40px;
+                padding-left: 5px;
+                border-radius: 5px;
+                
+                font-size: 20px;
+            }
+            .tot{
+                background-color: red;
+                color: white;
+                Width: 70px;
+                height: 40px;
+                text-align: center;
+                
+                
+               
+            }
+            .total{
+                display: flex ;
+
+            }
+
+            .section4{
+                transform: translateX(45%);
+            }
+            .hInvoice{
+                padding-left: 30px;
+                font-size: 20px;
+            }
+
+            .dropdown{
+                
+                float: right;
+            }
+
+            .right1{
+                display: flex;
+                flex-direction: column;
+                transform: translateX(20%);
+            }
+            .right2{
+                transform:translateX(55%);
+                             
+            }
+            .Currency{
+                padding-top: 63px;
+            }
+
+            .main{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100vw;
+            }
+            .left1{
+                transform: translateX(-30%);
+            }
+            
+            .left2{
+                transform: translateX(-54%);
+            }
+
+            .textboxsize{
+                width: 300px;
+                height: auto;
+            }
+            .too{
+                
+                width: 100px;
+                height: 100px;
+            }
+
+            .section2{
+                display: flex;
+                padding-top: 10px;
+            }
+
+             .orderNo, .InvoiceDue{
+                 padding-top: 20px;
+             }
+
+             .Section3{
+                 display: flex;
+                 transform: translateX(-5%);
+                 padding-bottom: 10px;
+             }
+
+             .Quantity,.rate,.amount{
+                 padding-left: 20px;
+             }
+            
+             .tott{
+            
+            width: 330px;
+            border: 6px solid red;
+            
+             }
+
+            .total{
+                transform: translateX(45%);
+            }
+        </style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+<script type="text/javascript">
+    $(function () {
+        $('#btnAddMore').on('click', function () {
+            var html = $('#Section3').parent().html();
+            $('#dvContent').append(html);
+        });
+    });
+
+       
+ 
+
+
+
+function add() {
+  var x = parseInt(document.getElementById("rate").value);
+  var y = parseInt(document.getElementById("quantity").value)
+  var amount = document.getElementById("amount").value = x * y;
+  var subtotal = 0;
+  var subtotal = subtotal + amount;
+  var subtotal = document.getElementById("subtotal").value = subtotal;
+  
+  
+
+}
+
+function tax12(){
+    var x = parseInt(document.getElementById("subtotal").value);
+    var y = parseInt(document.getElementById("taxes").value);
+    var tax = (x * y)/100;
+    var tax = document.getElementById("taxdis").value = tax;
+    
+}
+        </script>
+    </head>
+
+    <body>
+        <div class="main">
+        <div>
+            <div class="Section1">
+                <div class="left1">
+              
+                <div class="Heading" >
+                    
+                        <p class="due ">Due</p>
+                    
+                    
+                        <p class="hInvoice">  <b> Invoice</b></p>
+                    
+                </div>
+
+            <div class="message">
+                <p>Thank you for the purchase.Timely Purchase will be appricated</p>
+            </div><br>
+        
+            
+                
+            <div class="details">
+                <div style="width: 50%; height: 100px; float: left">
+                    <form>
+                        <label for="fname"><b>Invoice No.</b></label>
+                        <input type="text" >
+
+                    </div>
+
+
+                        <div style="margin-left: 108%; height: 100px">
+                            <label for="lunguage"><b>Language</b></label>
+                                <select name="lunguage" id="lung">
+                                <option value="English(US)">English(US)</option>
+                                </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="right1">
+
+        <img src="./PngItem_3329752.png" width="70" height="70">
+        <div class="Currency">
+        <label for="currency"><b>Currency</b></label><br>
+                <select name="Currency" id="Currency">
+                <option value="INR">Indian Rupees-INR</option>
+                <option value="USD">United States Dollar-USD</option>
+                <option value="BPG">British Pound-GPB</option>
+                <option value="AUD">Australian Dollar</option>
+                </select>
+            
+        </div>
+        </div>
+        
+    </div>
+    <div class="line1"> <hr> </div>
+    
+</div>
+<div>
+    <div class="section2">
+        <div class="left2">
+            <div class="From">
+            <p><b>From</b></p>
+            <p>Searce<br>Hinjewadi Rajiv Gandhi Infotech Park,<br> Pune, Maharashtra 411057</p>
+        </div>
+
+        <div class="To">
+            <form>
+                <form action = "/cgi-bin/hello_get.cgi" method = "get">
+                    <b>To</b>
+                    <br><br>
+                    <textarea rows = "4" cols = "40" name = "description">
+                    </textarea><br>
+                    
+                 </form>
+        </div>
+    </div>
+
+    <div class="right2">
+        <div class="date">
+            <form action="/action_page.php">
+                <label for="Date"><b>Date:</b></label><br>
+                <input type="date" id="date" name="date">
+               
+              </form>
+        </div>
+
+        <div class="InvoiceDue">
+            <label for="Duedates"><b>Invoice Due</b></label><br>
+                <select name="InvoiceDue" id="InvoiceDue">
+                <option value="INR">After 30 days</option>
+                <option value="USD">After 25 days</option>
+                <option value="BPG">After 20 days</option>
+                <option value="AUD">After 15 days</option>
+                </select>
+        </div>
+        <div class="orderNo">
+            <form>
+                <label for="fname"><b>Purchase Order No.</b></label><br>
+                <input type="text" ><br>
+
+        </div>
+    </div>
+
+
+</div><div class="line2"> <hr> </div>
+</div>
+<div>
+<div id="Section3" class="Section3">
+
+    
+
+    <div class="Itemslist">
+        <form>
+            <label for="fname"><b>Name</b></label><br>
+            <input type="text" style=" width: 380px; height:50px;"/><br>
+
+
+    </div> 
+    <div class="Quantity">
+        <label for="fname"><b>Quantity</b></label><br>
+        <input type="number" id="quantity" style="width: 80px;height:20px;" /><br>
+    </div>
+
+    <div class="rate">
+        <label for="fname"><b>Rate</b></label><br>
+        <input type="number" id="rate" onkeyup="add()" style="width: 80px;height:20px;"/><br>
+    </div>
+
+    <div class="amount">
+        <label for="fname"><b>Amount</b></label><br>
+        <input type="number" id="amount" style="width: 120px;height:20px;" /><br>
+                
+    </div>
+</div>
+<div class="line3"> <hr> </div>
+<input type="button" value="Add More" id="btnAddMore" />
+
+    <div id="dvContent">
+        
+    </div>
+</div>
+
+<div>
+    <div class="section4">
+        <div class="subtotal">
+        <div><b>Subtotal</b>
+        </div>
+
+    
+    <div> 
+
+        <input type="number" id="subtotal" style="width:40px; height:20px">
+    </div>
+    </div>
+    <hr>
+    <div class="tax">
+        <div class="taxtext">
+        <label for="fname">Value added task</label><br>
+        </div>
+                <div><input type="number" id ="taxes" onkeyup="tax12()" style="width: 40px;height:20px;" ><br>
+    </div>
+    <div><input type="number" id = "taxdis" style="width: 40px;height:20px;" ><br>
+     </div>
+   </div>
+    <hr>
+    </div>
+    <div class="total">
+    <div class="tot">Total</div>
+
+    <div class="tott"></div>
+
+    </div>
+</div>
+</div>
+        
+</body>
+</html>
