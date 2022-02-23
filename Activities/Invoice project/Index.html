@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Invoice Genertor
+        </title>
+        <link rel="stylesheet" href="./style.css">
+        <script src="./myscript.js"></script>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+        <script type="text/javascript">
+            $(function () {
+                $('#btnAddMore').on('click', function () {
+                    var html = $('#Section3').parent().html();
+                    $('#dvContent').append(html);
+                });
+            });
+
+    
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+	
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.js">
+	</script>
+	<script scr="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    </head>
+
+    <body>
+        <div class="main">
+        <div>
+            <div class="Section1">
+                <div class="left1">
+              
+                <div class="Heading" >
+                    
+                        <p class="due ">Due</p>
+                    
+                    
+                        <p class="hInvoice">  <b> Invoice</b></p>
+                    
+                </div>
+
+            <div class="message">
+                <p>Thank you for the purchase.Timely Purchase will be appricated</p>
+            </div><br>
+        
+            
+                
+            <div class="details">
+                <div style="width: 50%; height: 100px; float: left">
+                    <form>
+                        <label for="fname"><b>Invoice No.</b></label>
+                        <input type="text" >
+
+                    </div>
+
+
+                        <div style="margin-left: 108%; height: 100px">
+                            <label for="lunguage"><b>Language</b></label>
+                                <select name="lunguage" id="lung">
+                                <option value="English(US)">English(US)</option>
+                                </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="right1">
+
+        <img src="./PngItem_3329752.png" width="70" height="70">
+        <div class="Currency">
+        <label for="currency"><b>Currency</b></label><br>
+                <select name="Currency" id="Currency">
+                <option value="INR">Indian Rupees-INR</option>
+                <option value="USD">United States Dollar-USD</option>
+                <option value="BPG">British Pound-GPB</option>
+                <option value="AUD">Australian Dollar</option>
+                </select>
+            
+        </div>
+        </div>
+        
+    </div>
+    <div class="line1"> <hr> </div>
+    
+</div>
+<div>
+    <div class="section2">
+        <div class="left2">
+            <div class="From">
+            <p><b>From</b></p>
+            <p>Searce<br>Hinjewadi Rajiv Gandhi Infotech Park,<br> Pune, Maharashtra 411057</p>
+        </div>
+
+        <div class="To">
+            <form>
+                <form action = "/cgi-bin/hello_get.cgi" method = "get">
+                    <b>To</b>
+                    <br><br>
+                    <textarea rows = "4" cols = "40" name = "description">
+                    </textarea><br>
+                    
+                 </form>
+        </div>
+    </div>
+
+    <div class="right2">
+        <div class="date">
+            <form action="/action_page.php">
+                <label for="Date"><b>Date:</b></label><br>
+                <input type="date" id="date" name="date">
+               
+              </form>
+        </div>
+
+        <div class="InvoiceDue">
+            <label for="Duedates"><b>Invoice Due</b></label><br>
+                <select name="InvoiceDue" id="InvoiceDue">
+                <option value="INR">After 30 days</option>
+                <option value="USD">After 25 days</option>
+                <option value="BPG">After 20 days</option>
+                <option value="AUD">After 15 days</option>
+                </select>
+        </div>
+        <div class="orderNo">
+            <form>
+                <label for="fname"><b>Purchase Order No.</b></label><br>
+                <input type="text" ><br>
+
+        </div>
+    </div>
+
+
+</div><div class="line2"> <hr> </div>
+</div>
+<div class="wrapper">
+<div id="Section3" class="Section3">
+
+    
+
+    <div class="Itemslist">
+        <form>
+            <label for="fname"><b>Name</b></label><br>
+            <input type="text" style=" width: 380px; height:50px;"/><br>
+
+
+    </div> 
+    <div class="Quantity">
+        <label for="fname"><b>Quantity</b></label><br>
+        <input type="number" id="quantity" style="width: 80px;height:25px;" /><br>
+    </div>
+
+    <div class="rate">
+        <label for="fname"><b>Rate</b></label><br>
+        <input type="number" id="rate" onkeyup="add()" style="width: 80px;height:25px;"/><br>
+    </div>
+
+    <div class="amount">
+        <label for="fname"><b>Amount</b></label><br>
+        <input type="number" id="amount" style="width: 120px;height:25px;" /><br>
+                
+    </div>
+</div>
+<div class="line3"> <hr> </div>
+<div class="dvContent" id="dvContent">
+</div>
+
+
+<div>
+
+<input type="button" value="New Line" onclick="changeid()" id="btnAddMore" />
+</div>
+</div>
+
+
+
+<div>
+    
+    <div id="Section4" class="section4">
+        <div class="subtotal">
+        <div><b>Subtotal</b>
+        </div>
+
+    
+    <div class="subtotal"> 
+
+        <input type="number" id="subtotal" style="width:120px; height:24px">
+    </div>
+    </div>
+    <hr>
+    <div class="tax">
+        <div class="taxtext">
+        <label for="fname">Value added task</label><br>
+        </div>
+                <div class="taxbox0"><input type="number" id ="taxes"  onkeyup="tax12()" onkeydown="total()" style="width: 60px;height:30px;" ><br>
+    </div>
+    <div class="taxbox"><input type="number" id = "taxdis"  style="width: 80px;height:30px; padding-right: 40px;" ><br>
+     </div>
+   </div>
+    <hr>
+    </div>
+    <div class="total">
+    <div class="tot">Total</div>
+
+    <div class="tott">
+        <input type="number" id="finaltotal" style="width:220px; height:24px" style="border: 10px solid red;">
+    </div>
+
+    </div>
+</div>
+</div>
+<button class="btn btn-danger me-md-2 " type="button" onclick="generatePDF()">Generate PDF</button>  
+</body>
+</html>
